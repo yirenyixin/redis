@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xm.mapper.AddressMapper">
+  <resultMap id="BaseResultMap" type="jmu.model.Address">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="addressee" jdbcType="VARCHAR" property="addressee" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from address
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jmu.model.Address">
+    insert into address (id, city, addr, 
+      flag, phone, userid, 
+      addressee)
+    values (#{id,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{addressee,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jmu.model.Address">
+    update address
+    set city = #{city,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      addressee = #{addressee,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, city, addr, flag, phone, userid, addressee
+    from address
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, city, addr, flag, phone, userid, addressee
+    from address
+  </select>
+
+  <select id="getOne" resultMap="BaseResultMap" parameterType="jmu.model.Address">
+    select id, city, addr, flag, phone, userid, addressee
+    from address where userid=#{userid,jdbcType=VARCHAR} and flag=#{flag,jdbcType=VARCHAR}
+  </select>
+</mapper>

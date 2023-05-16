@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisgeneratortest.mapper.WalletMapper">
+  <resultMap id="BaseResultMap" type="com.example.mybatisgeneratortest.model.Wallet">
+    <id column="personid" jdbcType="VARCHAR" property="personid" />
+    <result column="balance" jdbcType="VARCHAR" property="balance" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from wallet
+    where personid = #{personid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.mybatisgeneratortest.model.Wallet">
+    insert into wallet (personid, balance)
+    values (#{personid,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.mybatisgeneratortest.model.Wallet">
+    update wallet
+    set balance = #{balance,jdbcType=VARCHAR}
+    where personid = #{personid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select personid, balance
+    from wallet
+    where personid = #{personid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select personid, balance
+    from wallet
+  </select>
+</mapper>

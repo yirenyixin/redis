@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisgeneratortest.mapper.RedRecordMapper">
+  <resultMap id="BaseResultMap" type="com.example.mybatisgeneratortest.model.RedRecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="user_id" />
+    <result column="red_packet" jdbcType="VARCHAR" property="red_packet" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="is_active" jdbcType="TINYINT" property="is_active" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from red_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.mybatisgeneratortest.model.RedRecord">
+    insert into red_record (id, user_id, red_packet, 
+      total, amount, is_active, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{user_id,jdbcType=INTEGER}, #{red_packet,jdbcType=VARCHAR}, 
+      #{total,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL}, #{is_active,jdbcType=TINYINT}, 
+      #{create_time,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.mybatisgeneratortest.model.RedRecord">
+    update red_record
+    set user_id = #{user_id,jdbcType=INTEGER},
+      red_packet = #{red_packet,jdbcType=VARCHAR},
+      total = #{total,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DECIMAL},
+      is_active = #{is_active,jdbcType=TINYINT},
+      create_time = #{create_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, user_id, red_packet, total, amount, is_active, create_time
+    from red_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_id, red_packet, total, amount, is_active, create_time
+    from red_record
+  </select>
+</mapper>

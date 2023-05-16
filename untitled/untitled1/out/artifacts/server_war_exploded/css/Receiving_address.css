@@ -1,0 +1,16 @@
+.page-index{
+    margin-left: 10%;
+    width: 80%;
+    height: 1000px;
+    /*background-color: #d9d9d9;*/
+}
+.page-index .address{
+    width: 100%;
+    height: 310px;
+    margin-left: 20%;
+}
+.page-index .table{
+    display: flex;
+    margin-left: 20%;
+    width: 440px;
+}

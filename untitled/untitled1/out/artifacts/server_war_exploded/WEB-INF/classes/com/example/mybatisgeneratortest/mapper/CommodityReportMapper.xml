@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisgeneratortest.mapper.CommodityReportMapper">
+  <resultMap id="BaseResultMap" type="com.example.mybatisgeneratortest.model.CommodityReport">
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="num" jdbcType="VARCHAR" property="num" />
+    <result column="profit" jdbcType="VARCHAR" property="profit" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.mybatisgeneratortest.model.CommodityReport">
+    insert into commodity_report (productname, num, profit
+      )
+    values (#{productname,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, #{profit,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select productname, num, profit
+    from commodity_report
+  </select>
+</mapper>

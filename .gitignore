@@ -1,0 +1,4 @@
+# 项目排除路径
+/untitled/untitled1/api/target/
+/untitled/untitled1/model/target/
+/untitled/untitled1/server/target/

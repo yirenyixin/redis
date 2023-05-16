@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.mapper.NoteMapper">
+    <insert id="insert" parameterType="jmu.model.Note">
+        INSERT INTO note(title,author,content,writeDate,flag,img,authorimg) VALUES(#{title},#{author},#{content},#{writeDate},#{flag},#{img},#{authorimg})
+    </insert>
+    <update id="update" parameterType="jmu.model.Note">
+        UPDATE note SET author=#{author},content=#{content},img=#{img} WHERE id=#{id}
+    </update>
+    <delete id="delete" parameterType="jmu.model.Note">
+        DELETE FROM note WHERE id=#{id}
+    </delete>
+    <select id="queryById" parameterType="jmu.model.Note" resultType="jmu.model.Note">
+        SELECT * FROM note WHERE id=#{id}
+    </select>
+    <select id="queryAll"  resultType="jmu.model.Note">
+        SELECT * FROM note
+    </select>
+    <select id="queryByLike" parameterType="jmu.model.Note" resultType="jmu.model.Note">
+        SELECT * FROM note WHERE title LIKE #{value} or AUTHOR LIKE #{value} or CONTENT LIKE #{value}
+    </select>
+</mapper>

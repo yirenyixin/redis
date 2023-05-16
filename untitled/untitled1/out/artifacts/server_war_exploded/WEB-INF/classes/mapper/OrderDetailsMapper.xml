@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xm.mapper.OrderDetailsMapper">
+  <resultMap id="BaseResultMap" type="jmu.model.OrderDetails">
+    <result column="orderid" jdbcType="INTEGER" property="orderid" />
+    <result column="shopid" jdbcType="VARCHAR" property="shopid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="addressee" jdbcType="VARCHAR" property="addressee" />
+  </resultMap>
+  <insert id="insert" parameterType="jmu.model.OrderDetails">
+    insert into order_details (orderid, shopid, productname, 
+      city, addr, phone, 
+      addressee)
+    values (#{orderid,jdbcType=INTEGER}, #{shopid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{addressee,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select orderid, shopid, productname, city, addr, phone, addressee
+    from order_details
+  </select>
+</mapper>

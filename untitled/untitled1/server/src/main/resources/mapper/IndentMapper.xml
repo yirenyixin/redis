@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xm.mapper.IndentMapper">
+  <resultMap id="BaseResultMap" type="jmu.model.Indent">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="buyerid" jdbcType="VARCHAR" property="buyerid" />
+    <result column="shopid" jdbcType="VARCHAR" property="shopid" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="productid" jdbcType="INTEGER" property="productid" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="cost" jdbcType="DECIMAL" property="cost" />
+    <result column="date" jdbcType="TIMESTAMP" property="date" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="addressee" jdbcType="VARCHAR" property="addressee" />
+    <result column="back" jdbcType="VARCHAR" property="back" />
+    <result column="affirm" jdbcType="VARCHAR" property="affirm" />
+    <result column="pack" jdbcType="VARCHAR" property="pack" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from indent
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jmu.model.Indent">
+    insert into indent (id, buyerid, shopid, 
+      state, productid, num, 
+      cost, date, city, 
+      addr, phone, addressee,back,affirm,pack
+      )
+    values (#{id,jdbcType=INTEGER}, #{buyerid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{productid,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, 
+      #{cost,jdbcType=DECIMAL}, #{date,jdbcType=TIMESTAMP}, #{city,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{addressee,jdbcType=VARCHAR},
+            #{back,jdbcType=VARCHAR},#{affirm,jdbcType=VARCHAR},#{pack,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jmu.model.Indent">
+    update indent
+    set buyerid = #{buyerid,jdbcType=VARCHAR},
+      shopid = #{shopid,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      productid = #{productid,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      cost = #{cost,jdbcType=DECIMAL},
+      date = #{date,jdbcType=TIMESTAMP},
+      city = #{city,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      addressee = #{addressee,jdbcType=VARCHAR},
+        back=#{back,jdbcType=VARCHAR},
+        affirm=#{affirm,jdbcType=VARCHAR},
+            pack=#{pack,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, buyerid, shopid, state, productid, num, cost, date, city, addr, phone, 
+    addressee,back,affirm,pack
+    from indent
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, buyerid, shopid, state, productid, num, cost, date, city, addr, phone, 
+    addressee,back,affirm,pack
+    from indent
+  </select>
+  <select id="selectOne" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select id, buyerid, shopid, state, productid, num, cost, date, city, addr, phone,
+      addressee,back,affirm,pack
+    from indent where productid=#{productid,jdbcType=INTEGER} and affirm=0
+  </select>
+</mapper>

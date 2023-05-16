@@ -1,0 +1,53 @@
+.person_main{
+    width: 100%;
+    height: 1000px;
+    /*background-color: #e8198b;*/
+}
+.person_main .my_select{
+    float: left;
+    width: 20%;
+    height: 1000px;
+}
+.person_main .my_select .my_tree{
+    display: flex;
+    font-size: 12px;
+    margin-left: 50%;
+    margin-top: 10px;
+}
+.person_main .main_wrap{
+    float: left;
+    width: 60%;
+    height: 1000px;
+    /*background-color: #d9d9d9;*/
+}
+.person_main .main_wrap .my_content{
+    display: flex;
+    width: 95%;
+    height: 50px;
+    border: 1px solid;
+}
+.person_main .main_wrap .my_content .my_content_select{
+    float: left;
+    width: 20%;
+    height: 50px;
+    margin-left: 20px;
+    border-right: 1px solid;
+}
+.person_main .main_wrap1{
+    float: left;
+    width: 20%;
+    height: 1000px;
+    /*background-color: #0e92b3;*/
+}
+.person_main .main_wrap1 .box{
+    width: 250px;
+    height: 200px;
+    border: 1px solid;
+}
+.person_main .main_wrap1 .box .box_title{
+    background-color: #84fab0;
+    margin-top: 0px;
+}
+.person_main .main_wrap1 .box .box_time{
+    width: 100%;
+}

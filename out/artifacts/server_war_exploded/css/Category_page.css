@@ -1,0 +1,167 @@
+/*顶部*/
+.top{
+    width: 1000px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+.top .head_portrait .img_head{
+    text-align: center;
+    background: url(../img/头像.png)no-repeat;
+    background-size: cover;
+    border: 0;
+    width: 18px;
+    /*height: 16px;*/
+    /*width: 16px;*/
+}
+.top .a{
+    /*float: right;*/
+    font-size: 10px;
+    float: left;
+    margin: 0px 15px;
+}
+.top .head_portrait .img_head1{
+    text-align: center;
+    background: url(../img/头像.png)no-repeat;
+    background-size: cover;
+    border: 0;
+    width: 18px;
+}
+.top .head_list{
+    list-style-type: none;
+    margin: 0px 15px;
+    padding: 0;
+    background: rgb(90,86,86);
+    overflow: hidden;
+}
+.top .head_list li{
+    float: left;
+}
+.top .head_list li a, .my{
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.top .head_list li a:hover, .list:hover .my{
+    color: red;
+}
+.top .head_list  a:hover, .list1:hover .sing_out{
+    color: red;
+}
+.list{
+    display: inline-block;
+}
+.list1{
+    position: absolute;
+    display:none;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.top .head_list .list:hover .list1 {
+    display: block;
+}
+/*搜索栏*/
+.searchbar{
+    /*float: left;*/
+    width: 900px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+.searchbar .searchbar_text{
+    font-size: 10px;
+    float: left;
+
+}
+.searchbar .searchbar_text .t{
+    margin-top: 0px;
+}
+.searchbar .search_box{
+    height: 15px;
+    float: left;
+}
+.searchbar .search_box .box{
+    width: 500px;
+}
+.searchbar .search{
+    float: left;
+}
+.searchbar .search .btn{
+    text-align: left;
+    /*background-color: #FF5000;*/
+    /*background: url(../img/搜索.png) no-repeat;*/
+    background-size: cover;
+    height: 23px;
+    float: left;
+    padding-top: 20px;
+    width: 26px;
+    border-width: 0;
+}
+/*商品页*/
+.mainsrp-itemlist{
+    margin-right: -20px;
+    width: 100%;
+    /*height: 900px;*/
+    /*background-color: #f10215;*/
+}
+/*图片*/
+.mainsrp-itemlist .item-commodity{
+    width: 19%;
+    height: 320px;
+    margin-left: 10px;
+    margin-top: 10px;
+    /*background-color: #d9d9d9;*/
+    float: left;
+}
+.mainsrp-itemlist .item-commodity .pic{
+    width: 100%;
+    height: 180px;
+    /*background-color: #0e92b3;*/
+}
+.mainsrp-itemlist .item-commodity .pic .pic_link{
+    width: 100%;
+    height: 180px;
+}
+.mainsrp-itemlist .item-commodity .pic .pic_link .pic_img{
+    width: 100%;
+    height: 180px;
+}
+/*信息*/
+.mainsrp-itemlist .ctx-box{
+    width: 100%;
+    height: 121px;
+    /*background-color: #e8198b;*/
+    margin-top: 19px;
+}
+.mainsrp-itemlist .ctx-box .row_1{
+    width: 100%;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.mainsrp-itemlist .ctx-box .row_2{
+    width: 100%;
+    height: 36px;
+    overflow: hidden;
+}
+.mainsrp-itemlist .ctx-box .row_3{
+    width: 100%;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.mainsrp-itemlist .ctx-box .row_4{
+    width: 100%;
+    height: 20px;
+    line-height: 22px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.mainsrp-itemlist .ctx-box .row_2 a{
+    /*color: #3d3d3d;*/
+    text-decoration: none;
+}

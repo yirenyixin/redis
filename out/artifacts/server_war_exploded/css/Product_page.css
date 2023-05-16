@@ -1,0 +1,70 @@
+.tb-property{
+    width: 990px;
+    height: 578px;
+    margin-left: 20%;
+}
+.tb-property .tb-booth{
+    width: 418px;
+    height: 418px;
+    float: left;
+    margin-top: 10px;
+}
+.tb-property .tb-booth .J-imgbooth{
+    width: 100%;
+    height: 100%;
+}
+.tb-property .tb-wrap{
+    width: 530px;
+    height: 567px;
+    margin-left: 10px;
+    float: left;
+    margin-top: 10px;
+}
+.tb-property .tb-wrap .title{
+    width: 100%;
+}
+.tb-property .tb-wrap .title .title1{
+    text-align: center;
+    font-size: 25px;
+}
+.tb-property .tb-wrap .price{
+    display: flex;
+    background-color: #d9d9d9;
+}
+.tb-property .tb-wrap .price .price1{
+    margin-left: 50px;
+    font-size: 25px;
+    float: left;
+}
+.tb-property .tb-wrap .label{
+    display: flex;
+}
+.tb-property .tb-wrap .size{
+    display: flex;
+}
+.tb-property .tb-wrap .color{
+    display: flex;
+}
+.tb-property .tb-wrap .inventory{
+    display: flex;
+}
+.tb-property .tb-wrap .num{
+    display: flex;
+}
+.tb-property .tb-wrap .btn1{
+    border: none;
+    color: #f10215;
+    background-color: aliceblue;
+    width: 178px;
+    height: 38px;
+    margin-left: 20%;
+}
+
+.tb-property .tb-wrap .btn2{
+    border: none;
+    color: #f10215;
+    background-color: aliceblue;
+    width: 178px;
+    height: 38px;
+    margin-left: 20%;
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.mapper.ProductMapper">
+    <insert id="insert" parameterType="jmu.model.Product">
+        insert into product (id, name, img,
+                             size, type, price,
+                             shopid, color, stock,
+                             produc_packed)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR},
+                #{size,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR},
+                #{shopid,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, #{stock,jdbcType=VARCHAR},
+                #{produc_packed,jdbcType=VARCHAR})
+    </insert>
+    <select id="getID"  resultType="String">
+        SELECT count(id) FROM product
+    </select>
+    <select id="getall"  resultType="jmu.model.Product">
+        SELECT product.id,product.name,product.img,product.size,product.type,
+               product.price,product.shopid,product.color,person.name,product.stock FROM product,person where product.shopid=person.id
+    </select>
+    <select id="queryAllmy" resultType="jmu.model.Product" parameterType="java.lang.String">
+        SELECT id,name,img,size,type,price,shopid,color,stock FROM product where shopid=#{shopid,jdbcType=VARCHAR}
+    </select>
+    <select id="querymyproduct" resultType="jmu.model.Product" parameterType="java.lang.String">
+        SELECT id,name,img,size,type,price,shopid,color,stock FROM product where shopid=#{shopid,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getallType" resultType="jmu.model.Product" parameterType="java.lang.String">
+        SELECT product.id,product.name,product.img,product.size,product.type,
+               product.price,product.shopid,product.color,person.name FROM product,person where type= #{type,jdbcType=VARCHAR} and product.shopid=person.id
+    </select>
+    <select id="getalltype"  resultType="jmu.model.Product">
+        SELECT * FROM product where type=#{type}
+    </select>
+    <select id="getone" parameterType="jmu.model.Product" resultType="jmu.model.Product">
+        SELECT * FROM product where id=#{id}
+    </select>
+    <select id="update" parameterType="jmu.model.Product" resultType="jmu.model.Product">
+        update product set name=#{name,jdbcType=VARCHAR},img=#{img,jdbcType=VARCHAR},size=#{size,jdbcType=VARCHAR},
+                           type=#{type,jdbcType=VARCHAR},price=#{price,jdbcType=VARCHAR},stock=#{stock,jdbcType=VARCHAR},color=#{color,jdbcType=VARCHAR} where id=#{id,jdbcType=INTEGER}
+    </select>
+</mapper>

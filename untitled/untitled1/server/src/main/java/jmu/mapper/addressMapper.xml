@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.mapper.addressMapper">
+    <insert id="insert" parameterType="jmu.model.Address">
+        INSERT INTO product(id,name,img,color,type,price,shopid,size) VALUES(#{id},#{name},#{img},#{color},#{type},#{price},#{shop-id},#{size})
+    </insert>
+    <select id="getID"  resultType="String">
+        SELECT count(id) FROM address
+    </select>
+    <delete id="delete" parameterType="jmu.model.Address">
+        DELETE FROM address WHERE id=#{id}
+    </delete>
+    <select id="getall"  resultType="jmu.model.Address">
+        SELECT * FROM address;
+    </select>
+    <update id="update1" parameterType="jmu.model.Address">
+        UPDATE address SET flag=#{flag} WHERE userid=#{userid};
+    </update>
+    <update id="update2" parameterType="jmu.model.Address">
+        UPDATE address SET flag=#{flag} WHERE userid=#{userid} and id=#{id};
+    </update>
+</mapper>

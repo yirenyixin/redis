@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xm.mapper.Order1Mapper">
+  <resultMap id="BaseResultMap" type="jmu.model.Order1">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="buyerid" jdbcType="VARCHAR" property="buyerid" />
+    <result column="sellerid" jdbcType="VARCHAR" property="sellerid" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="num" jdbcType="VARCHAR" property="num" />
+    <result column="cost" jdbcType="VARCHAR" property="cost" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order_1
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jmu.model.Order1">
+    insert into order_1 (id, buyerid, sellerid, 
+      productid, num, cost, 
+      date)
+    values (#{id,jdbcType=INTEGER}, #{buyerid,jdbcType=VARCHAR}, #{sellerid,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, #{cost,jdbcType=VARCHAR}, 
+      #{date,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jmu.model.Order1">
+    update order_1
+    set buyerid = #{buyerid,jdbcType=VARCHAR},
+      sellerid = #{sellerid,jdbcType=VARCHAR},
+      productid = #{productid,jdbcType=VARCHAR},
+      num = #{num,jdbcType=VARCHAR},
+      cost = #{cost,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, buyerid, sellerid, productid, num, cost, date
+    from order_1
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, buyerid, sellerid, productid, num, cost, date
+    from order_1
+  </select>
+</mapper>

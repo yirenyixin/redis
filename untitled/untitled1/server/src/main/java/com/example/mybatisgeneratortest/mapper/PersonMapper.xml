@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisgeneratortest.mapper.PersonMapper">
+  <resultMap id="BaseResultMap" type="com.example.mybatisgeneratortest.model.Person">
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.mybatisgeneratortest.model.Person">
+    insert into person (name, id, password, 
+      flag, img)
+    values (#{name,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select name, id, password, flag, img
+    from person
+  </select>
+</mapper>

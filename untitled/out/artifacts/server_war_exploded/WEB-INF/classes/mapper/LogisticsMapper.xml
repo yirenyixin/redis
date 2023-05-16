@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xm.mapper.LogisticsMapper">
+  <resultMap id="BaseResultMap" type="jmu.model.Logistics">
+    <id column="orderid" jdbcType="INTEGER" property="orderid" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="return_goods" jdbcType="VARCHAR" property="return_goods" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from logistics
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jmu.model.Logistics">
+    insert into logistics (orderid, state, return_goods)
+    values (#{orderid,jdbcType=INTEGER}, #{state,jdbcType=VARCHAR}, #{return_goods,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jmu.model.Logistics">
+    update logistics
+    set state = #{state,jdbcType=VARCHAR},
+      return_goods = #{return_goods,jdbcType=VARCHAR}
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select orderid, state, return_goods
+    from logistics
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select orderid, state, return_goods
+    from logistics
+  </select>
+</mapper>

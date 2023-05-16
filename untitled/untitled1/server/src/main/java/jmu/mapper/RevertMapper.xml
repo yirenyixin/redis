@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jmu.mapper.RevertMapper">
+    <select id="queryAll1"  resultType="jmu.model.Revert">
+        SELECT * FROM revert
+    </select>
+    <select id="queryAll"  resultType="jmu.model.Revert">
+        SELECT * FROM revert where NoteId=#{noteID}
+    </select>
+    <delete id="delete" parameterType="int">
+        DELETE FROM revert WHERE revertID=#{revertID}
+    </delete>
+    <delete id="deleteAll" parameterType="String">
+        DELETE FROM revert WHERE noteID=#{noteID}
+    </delete>
+
+    <update id="update" parameterType="jmu.model.Revert" >
+        UPDATE revert SET authorimg=#{authorimg} WHERE author=#{author}
+    </update>
+</mapper>
